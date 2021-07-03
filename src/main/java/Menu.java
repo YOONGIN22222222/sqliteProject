@@ -14,6 +14,8 @@ public class Menu {
         System.out.println("0. 종료");
         System.out.println("----------");
 
+        System.out.print("choose menu: ");
+
         br = new BufferedReader(new InputStreamReader(System.in));
         return br.readLine();
     }

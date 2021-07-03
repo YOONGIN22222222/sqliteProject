@@ -34,12 +34,15 @@ public class CrudService {
             br = new BufferedReader(new InputStreamReader(System.in));
             name = br.readLine();
             dataMap.put("NAME"   , name);
+
             System.out.println("국어 성적 입력");
             korScore = Integer.parseInt(br.readLine());
             dataMap.put("KOR_SCORE"   , korScore);
+
             System.out.println("영어 성적 입력");
             engScore = Integer.parseInt(br.readLine());
             dataMap.put("ENG_SCORE" , engScore);
+
             System.out.println("수학 성적 입력");
             mathScore = Integer.parseInt(br.readLine());
             dataMap.put("MATH_SCORE" , mathScore);
@@ -48,7 +51,7 @@ public class CrudService {
             socialScore = Integer.parseInt(br.readLine()); //socialScore 추가추가
             dataMap.put("SOCIAL_SCORE" , socialScore);
 
-            grade = Person.calculateGrade(korScore, engScore, mathScore,socialScore);  //socialScore 파라미터로 추가추가
+            grade = Person.calculateGrade(korScore, engScore, mathScore, socialScore);  //socialScore 파라미터로 추가추가
             dataMap.put("GRADE" , grade);
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,7 +73,8 @@ public class CrudService {
         int korScore;
         int engScore;
         int mathScore;
-        int socialScore = 0;
+        int socialScore;
+
         String grade;
         String regDate;
 
@@ -86,6 +90,7 @@ public class CrudService {
             System.out.println("이름 입력");
             name = br.readLine();
             updateMap.put("NAME"   , name);
+
             System.out.println("국어 성적 입력");
             korScore = Integer.parseInt(br.readLine());
             updateMap.put("KOR_SCORE"   , korScore);
@@ -100,10 +105,15 @@ public class CrudService {
 
             System.out.println("사회 성적 입력");
             mathScore = Integer.parseInt(br.readLine());
-            updateMap.put("SOCIAL_SCORE" , socialScore); //UPDATE에 socialScore 추가
+            updateMap.put("SOCIAL_SCORE" , socialScore);
 
-            grade = Person.calculateGrade(korScore, engScore, mathScore,socialScore);//그레이드  UPDATE에 socialScore 추가
+            grade = Person.calculateGrade(korScore, engScore, mathScore, socialScore);//그레이드  UPDATE에 socialScore 추가
             updateMap.put("GRADE" , grade);
+
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            regDate = date.format(formatter);
+            updateMap.put("REG_DATE" , regDate);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -117,7 +127,7 @@ public class CrudService {
         int num = 0;
 
         try {
-            System.out.println("삭제할 번호 입력");
+            System.out.print("삭제할 번호 입력 : ");
             br = new BufferedReader(new InputStreamReader(System.in));
             num = Integer.parseInt(br.readLine());
         } catch (IOException e) {

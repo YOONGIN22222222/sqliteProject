@@ -18,7 +18,8 @@ public class DDLService {
 
     Connection conn;
 
-    public DDLService(Connection conn) {
+    public DDLService(Connection conn)
+    {
         this.conn = conn;
     }
 
@@ -67,7 +68,8 @@ public class DDLService {
     }
 
     // 테이블 생성 함수
-    public boolean createTable() throws SQLException {
+    public boolean createTable() throws SQLException
+    {
         // SQL 실행 및 반환
         return executeSQL(CREATE_SQL);
     }
