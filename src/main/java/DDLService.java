@@ -10,6 +10,7 @@ public class DDLService {
             + "  KOR_SCORE     INTEGER     NOT NULL, "
             + "  ENG_SCORE     INTEGER     NOT NULL, "
             + "  MATH_SCORE     INTEGER     NOT NULL, "
+            + "  SOCIAL_SCORE     INTEGER     NOT NULL, "
             + "  GRADE     TEXT     NOT NULL, "
             + "  REG_DATE    TEXT     NOT NULL  )";
 

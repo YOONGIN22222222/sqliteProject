@@ -136,7 +136,7 @@ public class DQLService {
         }
 
         // 상세 데이터 출력
-        System.out.println("No Name Kor Eng Math Sum Avg Grade RegDate");
+        System.out.println("No Name Kor Eng Math Social Sum Avg Grade RegDate");
         System.out.println("==========================================");
 
         for(int i = 0; i < mapList.size(); i++) {
@@ -147,13 +147,14 @@ public class DQLService {
             int kor_score = Integer.parseInt(map.get("KOR_SCORE").toString());
             int eng_score = Integer.parseInt(map.get("ENG_SCORE").toString());
             int math_score = Integer.parseInt(map.get("MATH_SCORE").toString());
+            int social_score = Integer.parseInt(map.get("SOCIAL_SCORE").toString());
             String grade = (String) map.get("GRADE");
             String reg_date = (String) map.get("REG_DATE");
 
-            int sum = kor_score + eng_score + math_score;
-            double avg = sum / 3;
+            int sum = kor_score + eng_score + math_score + social_score;
+            double avg = sum / 4;
 
-            System.out.println(id + ". " + name + "  " + kor_score + "  " + eng_score + "  " + math_score + "  " + sum + " " + avg + "  " + grade + "   " + reg_date);
+            System.out.println(id + ". " + name + "  " + kor_score + "  " + eng_score + "  " + math_score + "  " + social_score+ " "+ sum + " " + avg + "  " + grade + "   " + reg_date);
         }
     }
 }

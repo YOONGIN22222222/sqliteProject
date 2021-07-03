@@ -4,25 +4,27 @@ public class Person {
     private int korScore;
     private int engScore;
     private int mathScore;
+    private int socialScore;
     private String grade;
     private String regDate;
 
-    public Person(int num, String name, int korScore, int engScore, int mathScore, String grade, String regDate) {
+    public Person(int num, String name, int korScore, int engScore, int mathScore, int socialScore,  String grade, String regDate) {
         this.num = num;
         this.name = name;
         this.korScore = korScore;
         this.engScore = engScore;
         this.mathScore = mathScore;
+        this.socialScore = socialScore;
         this.grade = grade;
         this.regDate = regDate;
     }
 
     private int sum(){
-        return this.korScore + this.engScore + this.mathScore;
+        return this.korScore + this.engScore + this.mathScore+this.socialScore;
     }
 
-    public static String calculateGrade(int korScore, int engScore, int mathScore){
-        int sum = korScore + engScore + mathScore;
+    public static String calculateGrade(int korScore, int engScore, int mathScore, int socialScore){
+        int sum = korScore + engScore + mathScore+socialScore;
         double avg = sum / 3;
 
         if(avg >= 95){
@@ -48,7 +50,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore + "   " + sum() + "  " + sum()/3 + "   "  + this.grade + "     "  +this.regDate ;
+        return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore +"  " + this.socialScore+ "   " + sum() + "  " + sum()/3 + "   "  + this.grade + "     "  +this.regDate ;
     }
 
     public int getNum() {
@@ -89,6 +91,14 @@ public class Person {
 
     public void setMathScore(int mathScore) {
         this.mathScore = mathScore;
+    }
+
+    public int getSocialScore() {
+        return socialScore;
+    }
+
+    public void setSocialScore(int socialScore) {
+        this.socialScore = socialScore;
     }
 
     public String getRegDate() {

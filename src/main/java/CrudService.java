@@ -23,6 +23,7 @@ public class CrudService {
         int korScore;
         int engScore;
         int mathScore;
+        int socialScore; //사회과목 성적추가 _ , 총점, 그레이드에 파라미터 전송
         String grade;
         String regDate;
 
@@ -42,7 +43,12 @@ public class CrudService {
             System.out.println("수학 성적 입력");
             mathScore = Integer.parseInt(br.readLine());
             dataMap.put("MATH_SCORE" , mathScore);
-            grade = Person.calculateGrade(korScore, engScore, mathScore);
+
+            System.out.println("사회 성적 입력");
+            socialScore = Integer.parseInt(br.readLine()); //socialScore 추가추가
+            dataMap.put("SOCIAL_SCORE" , socialScore);
+
+            grade = Person.calculateGrade(korScore, engScore, mathScore,socialScore);  //socialScore 파라미터로 추가추가
             dataMap.put("GRADE" , grade);
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,6 +70,7 @@ public class CrudService {
         int korScore;
         int engScore;
         int mathScore;
+        int socialScore = 0;
         String grade;
         String regDate;
 
@@ -91,7 +98,11 @@ public class CrudService {
             mathScore = Integer.parseInt(br.readLine());
             updateMap.put("MATH_SCORE" , mathScore);
 
-            grade = Person.calculateGrade(korScore, engScore, mathScore);
+            System.out.println("사회 성적 입력");
+            mathScore = Integer.parseInt(br.readLine());
+            updateMap.put("SOCIAL_SCORE" , socialScore); //UPDATE에 socialScore 추가
+
+            grade = Person.calculateGrade(korScore, engScore, mathScore,socialScore);//그레이드  UPDATE에 socialScore 추가
             updateMap.put("GRADE" , grade);
 
         } catch (IOException e) {
