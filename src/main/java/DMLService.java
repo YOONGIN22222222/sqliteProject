@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class DMLService {
 
-    final String INSERT_SQL = "INSERT INTO PERSON ( NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE, SOCIAL_SCORE,GRADE, REG_DATE) VALUES ( ?,?,?,?,?,?)";
+    final String INSERT_SQL = "INSERT INTO PERSON ( NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE, SOCIAL_SCORE, GRADE, REG_DATE) VALUES ( ?,?,?,?,?,?,?)";
     final String UPDATE_SQL = "UPDATE PERSON SET NAME = ?, KOR_SCORE = ?, ENG_SCORE = ?, MATH_SCORE = ?, SOCIAL_SCORE = ?, GRADE = ? WHERE ID = ?";
     final String DELETE_SQL = "DELETE FROM PERSON WHERE ID = ? ";
 

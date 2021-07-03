@@ -73,7 +73,7 @@ public class CrudService {
         int korScore;
         int engScore;
         int mathScore;
-        int socialScore;
+        int socialScore=0;
 
         String grade;
         String regDate;

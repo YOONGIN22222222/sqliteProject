@@ -154,7 +154,7 @@ public class DQLService {
             int sum = kor_score + eng_score + math_score + social_score;
             double avg = sum / 4;
 
-            System.out.println(id + ". " + name + "  " + kor_score + "  " + eng_score + "  " + math_score + "  " + social_score+ " "+ sum + " " + avg + "  " + grade + "   " + reg_date);
+            System.out.println(id + ". " + name + "  " + kor_score + "  " + eng_score + "  " + math_score +"  " + social_score+"  " + sum + " " + avg + "  " + grade + "   " + reg_date);
         }
     }
 }

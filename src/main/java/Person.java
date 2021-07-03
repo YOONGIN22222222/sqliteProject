@@ -25,7 +25,7 @@ public class Person {
 
     public static String calculateGrade(int korScore, int engScore, int mathScore, int socialScore){
         int sum = korScore + engScore + mathScore+socialScore;
-        double avg = sum / 3;
+        double avg = sum / 4;
 
         if(avg >= 95){
             return "A+";
@@ -50,7 +50,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore +"  " + this.socialScore+ "   " + sum() + "  " + sum()/3 + "   "  + this.grade + "     "  +this.regDate ;
+        return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore + "  " + this.socialScore+  "  " + sum() + "  " + sum()/3 + "   "  + this.grade + "     "  +this.regDate ;
     }
 
     public int getNum() {
