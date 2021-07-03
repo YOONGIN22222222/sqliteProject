@@ -8,7 +8,8 @@ public class Person {
     private String grade;
     private String regDate;
 
-    public Person(int num, String name, int korScore, int engScore, int mathScore, int socialScore,  String grade, String regDate) {
+
+    public Person(int num, String name, int korScore, int engScore, int mathScore, int socialScore, String grade, String regDate) {
         this.num = num;
         this.name = name;
         this.korScore = korScore;
@@ -20,11 +21,11 @@ public class Person {
     }
 
     private int sum(){
-        return this.korScore + this.engScore + this.mathScore+this.socialScore;
+        return this.korScore + this.engScore + this.mathScore + this.socialScore;
     }
 
     public static String calculateGrade(int korScore, int engScore, int mathScore, int socialScore){
-        int sum = korScore + engScore + mathScore+socialScore;
+        int sum = korScore + engScore + mathScore + socialScore;
         double avg = sum / 4;
 
         if(avg >= 95){
@@ -50,7 +51,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore + "  " + this.socialScore+  "  " + sum() + "  " + sum()/3 + "   "  + this.grade + "     "  +this.regDate ;
+        return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore + "   " + this.socialScore + "   " + sum() + "  " + sum()/4 + "   "  + this.grade + "     "  +this.regDate ;
     }
 
     public int getNum() {

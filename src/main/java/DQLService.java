@@ -14,27 +14,27 @@ public class DQLService {
         this.conn = conn;
     }
 
-    // 데이터 조회 함수
+
     public List<Map<String, Object>> selectAll(){
 
-        //   - 조회 결과 변수
+
         final Set<String> columnNames = new HashSet<String>();
         final List<Map<String, Object>> selected = new ArrayList<Map<String, Object>>();
 
         try {
-            // PreparedStatement 객체 생성
+
             pstmt = conn.prepareStatement(SELECTALL_SQL);
 
-            // 데이터 조회
+
             ResultSet rs = pstmt.executeQuery();
 
-            // 조회된 데이터의 컬럼명 저장
+
             meta = pstmt.getMetaData();
             for(int i=1; i<=meta.getColumnCount(); i++) {
                 columnNames.add(meta.getColumnName(i));
             }
 
-            // ResultSet -> List<Map> 객체
+
             Map<String, Object> resultMap = null;
 
             while(rs.next()) {
@@ -50,12 +50,12 @@ public class DQLService {
             }
 
         } catch (SQLException e) {
-            // 오류처리
+
             System.out.println(e.getMessage());
 
         } finally  {
             try {
-                // PreparedStatement 종료
+
                 if( pstmt != null ) {
                     pstmt.close();
                 }
@@ -65,34 +65,34 @@ public class DQLService {
             }
         }
 
-        // 결과 반환 - 조회된 데이터 리스트
+
         return selected;
     }
 
-    // 데이터 조회 함수
+
     public List<Map<String, Object>> selectByName(String name){
 
-        //   - 조회 결과 변수
+
         final Set<String> columnNames = new HashSet<String>();
         final List<Map<String, Object>> selected = new ArrayList<Map<String, Object>>();
 
         try {
-            // PreparedStatement 객체 생성
+
             pstmt = conn.prepareStatement(SELECTBYNAME_SQL);
 
-            // 조회 데이터 조건 매핑
+
             pstmt.setObject(1, name);
 
-            // 데이터 조회
+
             ResultSet rs = pstmt.executeQuery();
 
-            // 조회된 데이터의 컬럼명 저장
+
             meta = pstmt.getMetaData();
             for(int i=1; i<=meta.getColumnCount(); i++) {
                 columnNames.add(meta.getColumnName(i));
             }
 
-            // ResultSet -> List<Map> 객체
+
             Map<String, Object> resultMap = null;
 
             while(rs.next()) {
@@ -108,12 +108,12 @@ public class DQLService {
             }
 
         } catch (SQLException e) {
-            // 오류처리
+
             System.out.println(e.getMessage());
 
         } finally  {
             try {
-                // PreparedStatement 종료
+
                 if( pstmt != null ) {
                     pstmt.close();
                 }
@@ -123,21 +123,21 @@ public class DQLService {
             }
         }
 
-        // 결과 반환 - 조회된 데이터 리스트
+
         return selected;
     }
 
-    // 조회 결과 출력 함수
+
     public void printMapList(List<Map<String, Object>> mapList) {
 
         if( mapList.size() == 0 ) {
-            System.out.println("조회된 데이터가 없습니다.");
+            System.out.println("no print data");
             return;
         }
 
-        // 상세 데이터 출력
+
         System.out.println("No Name Kor Eng Math Social Sum Avg Grade RegDate");
-        System.out.println("==========================================");
+        System.out.println("==================================================");
 
         for(int i = 0; i < mapList.size(); i++) {
             Map<String, Object> map = mapList.get(i);
@@ -154,7 +154,7 @@ public class DQLService {
             int sum = kor_score + eng_score + math_score + social_score;
             double avg = sum / 4;
 
-            System.out.println(id + ". " + name + "  " + kor_score + "  " + eng_score + "  " + math_score +"  " + social_score+"  " + sum + " " + avg + "  " + grade + "   " + reg_date);
+            System.out.println(id + ". " + name + "  " + kor_score + "  " + eng_score + "  " + math_score + "    " + social_score + "    " + sum + "  " + avg + "  " + grade + "   " + reg_date);
         }
     }
 }

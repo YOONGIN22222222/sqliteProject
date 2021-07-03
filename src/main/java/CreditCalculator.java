@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -22,7 +23,7 @@ public class CreditCalculator {
 
         DDL.createTable();
 
-        System.out.println("-----시작-----");
+        System.out.println("-----start-----");
 
         while(true) {
             try {
@@ -35,35 +36,34 @@ public class CreditCalculator {
                     case "2":
                         result = DML.insertPerson(crudService.createData());
                         if( result >= 0 ) {
-                            System.out.println("추가되었습니다.");
+                            System.out.println("insert !");
                         } else {
-                            System.out.println("데이터 입력 실패");
+                            System.out.println("data input fail");
                         }
 
                         break;
 
                     case "3":
-                        crudService.readData(DQL); // 데이터 출력
+                        crudService.readData(DQL);
 
                         result = DML.updatePerson(crudService.updateData());
                         if( result >= 0 ) {
-                            System.out.println("수정되었습니다.");
+                            System.out.println("update!");
                         } else {
-                            System.out.println("데이터 수정 실패");
+                            System.out.println("update fail");
                         }
 
                         break;
 
                     case "4":
-                        crudService.readData(DQL); // 데이터 출력
+                        crudService.readData(DQL);
 
                         result = DML.deletePerson(crudService.deleteData());
                         if( result >= 0 ) {
-                            System.out.println("삭제되었습니다.");
+                            System.out.println("delete!");
                         } else {
-                            System.out.println("데이터 삭제 실패");
+                            System.out.println("delete fail");
                         }
-
                         break;
 
                     case "5":
@@ -74,15 +74,15 @@ public class CreditCalculator {
                     case "6":
                         resultList = DQL.selectAll();
                         fileService.saveFile(resultList);
-                        System.out.println("파일에 저장되었습니다.");
+                        System.out.println("save file");
                         break;
 
                     case "0":
-                        System.out.println("종료");
+                        System.out.println("quit");
                         return;
 
                     default:
-                        System.out.println("잘못된 메뉴 선택");
+                        System.out.println("wrong choose menu");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -90,5 +90,3 @@ public class CreditCalculator {
         }
     }
 }
-
-

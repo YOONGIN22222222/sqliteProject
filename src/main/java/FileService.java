@@ -11,7 +11,7 @@ public class FileService {
     public void saveFile(List<Map<String, Object>> list) {
 
         try {
-            // fileUtils 사용
+
             File file = new File("data.txt");
             FileUtils.write(file, "", false);
 
@@ -23,16 +23,15 @@ public class FileService {
                 int eng_score = Integer.parseInt(map.get("ENG_SCORE").toString());
                 int math_score = Integer.parseInt(map.get("MATH_SCORE").toString());
                 int social_score = Integer.parseInt(map.get("SOCIAL_SCORE").toString());
-
                 String reg_date = (String) map.get("REG_DATE");
 
-                int sum = kor_score + eng_score + math_score + social_score;
+                int sum = kor_score + eng_score + math_score;
 
-                FileUtils.write (file,name + " / " + kor_score + " / " +eng_score + " / " + math_score + " / " +social_score + " / " + reg_date + "\n", true);
+                FileUtils.write (file,name + " / " + kor_score + " / " +eng_score + " / " + math_score + " / "  + social_score + " / " + reg_date + "\n", true);
             }
-            // fileUtils 사용
+
         }catch (FileNotFoundException e) {
-            System.out.println("data.txt 파일이 존재하지 않습니다.");
+            System.out.println("data.txt doesn't exist");
         }catch(IOException e){
             System.out.println(e);
         }

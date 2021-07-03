@@ -23,35 +23,30 @@ public class CrudService {
         int korScore;
         int engScore;
         int mathScore;
-        int socialScore; //사회과목 성적추가 _ , 총점, 그레이드에 파라미터 전송
+        int socialScore;
         String grade;
         String regDate;
 
         final HashMap<String, Object> dataMap = new HashMap<String, Object>();
 
         try {
-            System.out.println("이름 입력");
+            System.out.print("이름입력: ");
             br = new BufferedReader(new InputStreamReader(System.in));
             name = br.readLine();
             dataMap.put("NAME"   , name);
-
-            System.out.println("국어 성적 입력");
+            System.out.print("국어점수 입력: ");
             korScore = Integer.parseInt(br.readLine());
             dataMap.put("KOR_SCORE"   , korScore);
-
-            System.out.println("영어 성적 입력");
+            System.out.print("영어점수 입력: ");
             engScore = Integer.parseInt(br.readLine());
             dataMap.put("ENG_SCORE" , engScore);
-
-            System.out.println("수학 성적 입력");
+            System.out.print("수학점수 입력: ");
             mathScore = Integer.parseInt(br.readLine());
             dataMap.put("MATH_SCORE" , mathScore);
-
-            System.out.println("사회 성적 입력");
-            socialScore = Integer.parseInt(br.readLine()); //socialScore 추가추가
+            System.out.print("사회점수 입력: ");
+            socialScore = Integer.parseInt(br.readLine());
             dataMap.put("SOCIAL_SCORE" , socialScore);
-
-            grade = Person.calculateGrade(korScore, engScore, mathScore, socialScore);  //socialScore 파라미터로 추가추가
+            grade = Person.calculateGrade(korScore, engScore, mathScore, socialScore);
             dataMap.put("GRADE" , grade);
         } catch (IOException e) {
             e.printStackTrace();
@@ -73,41 +68,39 @@ public class CrudService {
         int korScore;
         int engScore;
         int mathScore;
-        int socialScore=0;
-
+        int socialScore;
         String grade;
         String regDate;
 
         final HashMap<String, Object> updateMap = new HashMap<String, Object>();
 
         try {
-            System.out.println("수정할 번호 입력");
+            System.out.print("choose num: ");
             br = new BufferedReader(new InputStreamReader(System.in));
 
             num = Integer.parseInt(br.readLine());
             updateMap.put("updateID" , num);
 
-            System.out.println("이름 입력");
+            System.out.print("이름: ");
             name = br.readLine();
             updateMap.put("NAME"   , name);
-
-            System.out.println("국어 성적 입력");
+            System.out.print("국어: ");
             korScore = Integer.parseInt(br.readLine());
             updateMap.put("KOR_SCORE"   , korScore);
 
-            System.out.println("영어 성적 입력");
+            System.out.print("영어: ");
             engScore = Integer.parseInt(br.readLine());
             updateMap.put("ENG_SCORE" , engScore);
 
-            System.out.println("수학 성적 입력");
+            System.out.print("수학: ");
             mathScore = Integer.parseInt(br.readLine());
             updateMap.put("MATH_SCORE" , mathScore);
 
-            System.out.println("사회 성적 입력");
-            mathScore = Integer.parseInt(br.readLine());
+            System.out.print("사회: ");
+            socialScore = Integer.parseInt(br.readLine());
             updateMap.put("SOCIAL_SCORE" , socialScore);
 
-            grade = Person.calculateGrade(korScore, engScore, mathScore, socialScore);//그레이드  UPDATE에 socialScore 추가
+            grade = Person.calculateGrade(korScore, engScore, mathScore, socialScore);
             updateMap.put("GRADE" , grade);
 
             LocalDate date = LocalDate.now();
@@ -127,7 +120,7 @@ public class CrudService {
         int num = 0;
 
         try {
-            System.out.print("삭제할 번호 입력 : ");
+            System.out.print("삭제할 num: ");
             br = new BufferedReader(new InputStreamReader(System.in));
             num = Integer.parseInt(br.readLine());
         } catch (IOException e) {

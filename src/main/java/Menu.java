@@ -5,13 +5,13 @@ public class Menu {
 
     public String printMenu() throws IOException{
         System.out.println("---menu---");
-        System.out.println("1. 조회");
-        System.out.println("2. 추가");
-        System.out.println("3. 수정");
-        System.out.println("4. 삭제");
-        System.out.println("5. 이름 검색");
-        System.out.println("6. 파일 저장하기");
-        System.out.println("0. 종료");
+        System.out.println("1. print");
+        System.out.println("2. insert");
+        System.out.println("3. edit(update)");
+        System.out.println("4. delete");
+        System.out.println("5. search name");
+        System.out.println("6. save file");
+        System.out.println("0. quit");
         System.out.println("----------");
 
         System.out.print("choose menu: ");
